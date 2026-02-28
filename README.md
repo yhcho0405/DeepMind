@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CivicQuest Seoul — 고장몬 도감 🏙️🐾
 
-## Getting Started
+도시 인프라 문제를 촬영하고, AI가 분석하고, 귀여운 몬스터로 수집하는 게이미피케이션 시빅테크 앱!
 
-First, run the development server:
+## 🚀 Quick Start
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🔑 Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Open the app → click **Settings** (gear icon or bottom nav)
+2. Paste your **Gemini API Key** from [Google AI Studio](https://aistudio.google.com/apikey)
+3. Start scanning!
 
-## Learn More
+## 🎮 How to Play
 
-To learn more about Next.js, take a look at the following resources:
+1. **Scan** — 카메라로 도시 인프라 문제를 촬영하거나 이미지를 업로드
+2. **Analyze** — AI가 문제를 분석하고 불편도/위험도 점수 산출
+3. **Collect** — 몬스터를 생성하고 울음소리를 듣고 도감에 추가
+4. **Map** — 수집한 몬스터들을 지도에서 확인
+5. **Dex** — 몬스터 도감에서 필터/정렬하며 컬렉션 관리
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🤖 Models Used
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Purpose | Model | Configurable |
+|---------|-------|:---:|
+| Analysis | `gemini-2.5-flash` | ✅ |
+| Image Generation | `gemini-2.0-flash-exp` | ✅ |
+| TTS (Monster Cry) | `gemini-2.5-flash-preview-tts` | ✅ |
 
-## Deploy on Vercel
+## 💾 Data Storage
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Monster records** — IndexedDB via localforage
+- **Images & Audio** — IndexedDB blob storage
+- **Settings & API Key** — localStorage
+- **No external backend** — everything runs client-side
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ⚠️ Limitations
+
+- API key is stored in browser localStorage (not encrypted)
+- Geolocation requires HTTPS or localhost
+- Image generation quality varies by model
+- TTS may fail with some SSML inputs
+- Large collections may slow down the browser
