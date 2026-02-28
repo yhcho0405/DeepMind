@@ -26,7 +26,8 @@
 2. **API Key 설정**
     - 앱 실행 후 **Settings**(하단 네비게이션 또는 설정 아이콘) 메뉴 진입
     - [Google AI Studio](https://aistudio.google.com/apikey)에서 발급받은 **Gemini API Key**를 입력
-3. **Ready to Scan!** 이제 카메라로 서울의 문제를 촬영하고 몬스터를 수집하기
+3. **Ready to Scan!** 
+    - 이제 카메라로 서울의 문제를 촬영하고 몬스터를 수집하기
 
 ---
 
@@ -59,12 +60,8 @@ AI의 환각을 배제하고 게임 밸런스를 유지하기 위한 독자적 *
 - **Impact Score:** $\text{ImpactScore} = \text{round}(0.55 \times \text{불편도} + 0.45 \times \text{위험도})$
 - **Level:** $\text{Level} = 1 + \text{floor}(\text{ImpactScore} / 10) \quad (1 \sim 11)$
 - **Final Stats:**
-    
-    $$
-    \text{HP} = \text{round}((60 + 2.0 \times \text{불편도} + 1.6 \times \text{위험도}) \times \text{Multiplier})
-    $$
-    
-    *($\text{Multiplier} = 1.0 + (\text{Level} - 1) \times 0.08$)*
+  - $\text{HP} = \text{round}((60 + 2.0 \times \text{불편도} + 1.6 \times \text{위험도}) \times \text{Multiplier})$
+  - $\text{Multiplier} = 1.0 + (\text{Level} - 1) \times 0.08$
     
 
 ### 3. 🎨 Creative Generative Synthesis
